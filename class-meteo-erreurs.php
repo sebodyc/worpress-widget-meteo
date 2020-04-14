@@ -19,16 +19,20 @@ class Meteo_Erreurs{
         //une condition qui stoke le message erreur dans $_error si lerreur repertoriee est presente
         switch ($code){
 
+            case '400':
+                $this->_error ="ville inconue";
+                break;
+
             case '401':
                 $this->_error ="le token est erronné";
                 break;
 
-            case '404':
-                $this->_error ="url inconue";
+            case '403':
+                $this->_error = "url non autorisée";
                 break;
 
-            case '400':
-                $this->_error =" ville inconue";
+            case '404':
+                $this->_error ="url inconue";
                 break;
 
             case '500':

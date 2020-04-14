@@ -57,6 +57,7 @@ function meteo_init(){
             else {update_option('town_preferency', $search);}
 
         // get an option
+
             $search = get_option('town_preferency');
             $token_api = $instance['token'];
             $url='https://api.meteo-concept.com/api/location/cities?token='.$token_api.'&search='.$search;
@@ -106,7 +107,7 @@ function meteo_init(){
 
 
     <form  action="" method="post">
-        <label for="name">ville ou code postal ou insee</label>
+        <label for="name">ville , code postal ou insee</label>
         <input type="text" id="ville" name="ville" required>
     </form>
 
@@ -115,20 +116,38 @@ function meteo_init(){
             // j affiche les info dans mon widget
             //si jamais la variable erreur contien une erreur je l'affiche
 
-            if (isset($error)){echo '<h3> Attention'.$error.'</h3>';}
+            if (isset($error)){echo '<h3 id="erreur">  Attention '.$error.'</h3>';}
 
 
-            echo '<h2> Prevision méteo pour ' .$town_name.' '.$town_cp.'</h2>';
-            echo '<div class="hh">
-                     <p> Aujourd\'hui T°Max:  ' .$tmax.'°C  , T°Min: ' .$tmin.'°C </p>
-                     <p>'.$weather_description.'</p>
-                     <img src="'.$weather_icon.'" alt "'.$weather_description.'" >
-                  </div>
-                  <div>
-                     <p> Demain T°Max:  ' .$tmax1.'°C  , T°Min: ' .$tmin1.'°C</p>
-                     <p>'.$weather_description1.'</p>
-                     <img src="'.$weather_icon1.'" alt "'.$weather_description1.'" >
+
+            echo '<h2 id="town_Name"> Previsions méteo pour ' .$town_name.' '.$town_cp.'</h2>';
+
+            echo '<div id="value">
+                    <div id ="today">
+                        <h3>Aujourd\'hui</h3>
+                        <div class= "temperatures">
+                            <p class= "max"> Max  ' .$tmax.'°C</p>
+                            <p class= "min"> Min ' .$tmin.'°C </p>
+                        </div>
+                        <div class= "weather">
+                        <img src="'.$weather_icon.'" alt "'.$weather_description.'" >
+                        <p class= "weather_Description">'.$weather_description.'</p>
+                        </div>
+                    </div>
+                    <div id ="tomorow">
+                        <h3>Demain</h3>
+                        <div class= "temperatures">
+                            <p class= "max"> Max  ' .$tmax1.'°C</p>
+                            <p class= "min"> Min ' .$tmin1.'°C </p>
+                        </div>
+                        <div class= "weather">
+                        <img src="'.$weather_icon1.'" alt "'.$weather_description1.'" >
+                        <p class= "weather_Description">'.$weather_description1.'</p>
+                        </div>
+                    </div>
                   </div>';
+
+
 
 
             echo $args['after_widget'];

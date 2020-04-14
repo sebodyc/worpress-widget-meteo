@@ -1,3 +1,37 @@
-.hh{background-color: blue;}
+    #value{
+        display: flex;
+        justify-content: space-around;
+    }
 
-p{color: red;}
+    #today{
+        border:0.2rem solid #6495ED;
+        padding: 1rem;
+        border-radius: 0.3rem;
+        width: 48%;
+    }
+
+    #tomorow{
+        border:0.2rem solid #6495ED;
+        padding: 1rem;border-radius: 0.3rem;
+        width: 48%;
+    }
+
+    .max{
+        color:#8B0000;
+        font-weight: bold;
+    }
+
+    .min{
+        color:#00008B;
+        font-weight: bold;
+    }
+
+    .weather_Description{
+        font-style: italic;
+        font-weight: bold;
+    }
+
+    #erreur{
+        font-size: 1rem;
+        color: red;
+    }
